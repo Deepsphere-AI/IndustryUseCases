@@ -1,26 +1,30 @@
 import nltk
 from nltk.stem import WordNetLemmatizer
-lemmatizer = WordNetLemmatizer()
 import pickle
 import numpy as np
 from tensorflow import keras
 #from keras.models import load_model
-
-model = keras.models.load_model('chatbot_model.h5')
 import json
 import random
-intents = json.loads(open('intents.json').read())
-words = pickle.load(open('words.pkl','rb'))
-classes = pickle.load(open('classes.pkl','rb'))
+#Creating GUI with tkinter
+import tkinter
+from tkinter import *
 
+model = keras.models.load_model('DSAI_chatbot_model.h5') #load model
+intents = json.loads(open('DSAI_intents.json').read()) #load json file
+words = pickle.load(open('DSAI_words.pkl','rb')) #load saved words object (pickle)
+classes = pickle.load(open('DSAI_classes.pkl','rb')) #load saved classes object (pickle)
+
+lemmatizer = WordNetLemmatizer() #lemmatizer
 
 def clean_up_sentence(sentence):
+    # tokenize and lemmatize input sentence
+    #sentence - input message from entry box
     sentence_words = nltk.word_tokenize(sentence)
     sentence_words = [lemmatizer.lemmatize(word.lower()) for word in sentence_words]
     return sentence_words
 
 # return bag of words array: 0 or 1 for each word in the bag that exists in the sentence
-
 def bow(sentence, words, show_details=True):
     # tokenize the pattern
     sentence_words = clean_up_sentence(sentence)
@@ -37,8 +41,10 @@ def bow(sentence, words, show_details=True):
 
 def predict_class(sentence, model):
     # filter out predictions below a threshold
-    p = bow(sentence, words,show_details=False)
-    res = model.predict(np.array([p]))[0]
+    #sentence - input message from EntryBox
+    #model - saved model by which class is to be predicted
+    p = bow(sentence, words,show_details=False) #extract bag of words
+    res = model.predict(np.array([p]))[0] #predict class
     ERROR_THRESHOLD = 0.25
     results = [[i,r] for i,r in enumerate(res) if r>ERROR_THRESHOLD]
     # sort by strength of probability
@@ -49,6 +55,7 @@ def predict_class(sentence, model):
     return return_list
 
 def getResponse(ints, intents_json):
+    # get response for the input message after predicting class
     tag = ints[0]['intent']
     list_of_intents = intents_json['intents']
     for i in list_of_intents:
@@ -58,36 +65,33 @@ def getResponse(ints, intents_json):
     return result
 
 def chatbot_response(msg):
+    # predicts class and getResponse for the input message
+    # msg - input message from EntryBox
     ints = predict_class(msg, model)
     res = getResponse(ints, intents)
     return res
 
-
-#Creating GUI with tkinter
-import tkinter
-from tkinter import *
-
-
 def send():
-    msg = EntryBox.get("1.0",'end-1c').strip()
+    #event listener for send button
+    msg = EntryBox.get("1.0",'end-1c').strip() #get message from entry box
     EntryBox.delete("0.0",END)
 
     if msg != '':
         ChatLog.config(state=NORMAL)
-        ChatLog.insert(END, "You: " + msg + '\n\n')
+        ChatLog.insert(END, "You: " + msg + '\n\n') #display input message in the chatlog
         ChatLog.config(foreground="#442265", font=("Verdana", 12 ))
 
-        res = chatbot_response(msg)
-        ChatLog.insert(END, "Bot: " + res + '\n\n')
+        res = chatbot_response(msg) #get response for the input message
+        ChatLog.insert(END, "Bot: " + res + '\n\n') #display response message in the chatlog
 
         ChatLog.config(state=DISABLED)
         ChatLog.yview(END)
 
 
-base = Tk()
-base.title("Hello")
-base.geometry("400x500")
-base.resizable(width=FALSE, height=FALSE)
+base = Tk() #creates tinker object
+base.title("Hello") #window title
+base.geometry("400x500") #window dimension
+base.resizable(width=FALSE, height=FALSE) #window is not resizable
 
 #Create Chat window
 ChatLog = Text(base, bd=0, bg="white", height="8", width="50", font="Arial",)
@@ -101,12 +105,11 @@ ChatLog['yscrollcommand'] = scrollbar.set
 #Create Button to send message
 SendButton = Button(base, font=("Verdana",12,'bold'), text="Send", width="12", height=5,
                     bd=0, bg="#32de97", activebackground="#3c9d9b",fg='#ffffff',
-                    command= send )
+                    command= send ) #send function is event loop
 
 #Create the box to enter message
 EntryBox = Text(base, bd=0, bg="white",width="29", height="5", font="Arial")
 #EntryBox.bind("<Return>", send)
-
 
 #Place all components on the screen
 scrollbar.place(x=376,y=6, height=386)
