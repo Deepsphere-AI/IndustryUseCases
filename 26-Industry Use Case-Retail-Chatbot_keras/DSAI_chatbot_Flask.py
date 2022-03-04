@@ -19,7 +19,7 @@ classes = pickle.load(open('DSAI_classes.pkl','rb'))#load saved classes object (
 
 @app.route("/")
 def index():
-    return render_template("DSAI_templates/index1.html")
+    return render_template("index1.html")
 
 def clean_up_sentence(sentence):
     # tokenize and lemmatize input sentence
