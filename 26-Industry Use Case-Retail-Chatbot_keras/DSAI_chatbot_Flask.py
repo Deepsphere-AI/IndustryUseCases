@@ -1,31 +1,34 @@
 import nltk
 from nltk.stem import WordNetLemmatizer
-lemmatizer = WordNetLemmatizer()
 import pickle
 import numpy as np
 from tensorflow import keras
 #from keras.models import load_model
 from flask import Flask, render_template, request
-app = Flask(__name__)
-
-model = keras.models.load_model('chatbot_model.h5')
 import json
 import random
-intents = json.loads(open('intents.json').read())
-words = pickle.load(open('words.pkl','rb'))
-classes = pickle.load(open('classes.pkl','rb'))
+
+app = Flask(__name__)
+
+lemmatizer = WordNetLemmatizer() #lemmatizer
+
+model = keras.models.load_model('DSAI_chatbot_model.h5') #load model
+intents = json.loads(open('DSAI_intents.json').read())#load json file
+words = pickle.load(open('DSAI_words.pkl','rb'))#load saved words object (pickle)
+classes = pickle.load(open('DSAI_classes.pkl','rb'))#load saved classes object (pickle)
 
 @app.route("/")
 def index():
     return render_template("index1.html")
 
 def clean_up_sentence(sentence):
+    # tokenize and lemmatize input sentence
+    #sentence - input message from entry box
     sentence_words = nltk.word_tokenize(sentence)
     sentence_words = [lemmatizer.lemmatize(word.lower()) for word in sentence_words]
     return sentence_words
 
 # return bag of words array: 0 or 1 for each word in the bag that exists in the sentence
-
 def bow(sentence, words, show_details=True):
     # tokenize the pattern
     sentence_words = clean_up_sentence(sentence)
@@ -54,6 +57,7 @@ def predict_class(sentence, model):
     return return_list
 
 def getResponse(ints, intents_json):
+    # get response for the input message after predicting class
     tag = ints[0]['intent']
     list_of_intents = intents_json['intents']
     for i in list_of_intents:
