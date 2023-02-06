@@ -8,7 +8,7 @@ def CSS_Property(file_name):
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 def All_Initialization():
-    image = Image.open('Logo_final.png')
+    image = Image.open('DSAI_Utility/Logo_final.png')
     st.image(image)
     st.markdown("<h1 style='text-align: center; color: #454545; font-size:30px;'>Learn to Develop ChatGPT Applications</h1><h2 style='text-align: center; color: blue; font-size:25px;'>ChatGPT Simplifies Work Order Analysis</h2>", unsafe_allow_html=True)
     st.markdown("""

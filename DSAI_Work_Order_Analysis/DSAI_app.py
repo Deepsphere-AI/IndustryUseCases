@@ -1,9 +1,9 @@
 import streamlit as vAR_st
 vAR_st.set_page_config(page_title="ChatGPT & GPT3 Apps", layout="wide")
 
-from DSAI_Utility import All_Initialization,CSS_Property
-from DSAI_chatgpt import ChatGPT_Response
-from DSAI_gpt3 import GPT3Tasks
+from DSAI_Utility.DSAI_Utility import All_Initialization,CSS_Property
+from DSAI_GPT.DSAI_chatgpt import ChatGPT_Response
+from DSAI_GPT.DSAI_gpt3 import GPT3Tasks
 
 if __name__=='__main__':
     # vAR_hide_footer = """<style>
@@ -13,7 +13,7 @@ if __name__=='__main__':
     # vAR_st.markdown(vAR_hide_footer, unsafe_allow_html=True)
     try:
         # Applying CSS properties for web page
-        CSS_Property("DSAI_style.css")
+        CSS_Property("DSAI_Utility/DSAI_style.css")
         # Initializing Basic Componentes of Web Page
         All_Initialization()
 
