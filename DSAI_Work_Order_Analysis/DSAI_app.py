@@ -6,11 +6,7 @@ from DSAI_GPT.DSAI_chatgpt import ChatGPT_Response
 from DSAI_GPT.DSAI_gpt3 import GPT3Tasks
 
 if __name__=='__main__':
-    # vAR_hide_footer = """<style>
-    #         footer {visibility: hidden;}
-    #         </style>
-    #         """
-    # vAR_st.markdown(vAR_hide_footer, unsafe_allow_html=True)
+    
     try:
         # Applying CSS properties for web page
         CSS_Property("DSAI_Utility/DSAI_style.css")
@@ -31,11 +27,10 @@ if __name__=='__main__':
             vAR_option = vAR_st.selectbox('',('Select a Model','GPT-3', 'ChatGPT'))
 
         if vAR_option=='ChatGPT':
-            # Calling ChatGPT
-            # ChatGPT_Response()
+            
             GPT3Tasks()
         elif vAR_option=='GPT-3':
-            # Calling GPT3
+            
             GPT3Tasks()
         else:
             pass
@@ -44,4 +39,4 @@ if __name__=='__main__':
     except BaseException as exception:
         print('Error in main function - ', exception)
         exception = 'Something went wrong - '+str(exception)
-        # vAR_st.error(exception)
+        vAR_st.error(exception)
