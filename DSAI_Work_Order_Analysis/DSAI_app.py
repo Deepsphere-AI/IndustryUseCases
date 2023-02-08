@@ -28,7 +28,7 @@ if __name__=='__main__':
 
         if vAR_option=='ChatGPT':
             
-            GPT3Tasks()
+            ChatGPT_Response()
         elif vAR_option=='GPT-3':
             
             GPT3Tasks()
