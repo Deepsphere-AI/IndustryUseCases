@@ -1,0 +1,7 @@
+openai==0.25.0
+Pillow==9.4.0
+pyChatGPT==0.4.3.1
+streamlit==1.16.0
+streamlit-chat
+pipreqs
+requests
