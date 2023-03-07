@@ -2,7 +2,8 @@ import streamlit as vAR_st
 vAR_st.set_page_config(page_title="Conversational Intelligence", layout="wide")
 
 from DSAI_Utility.DSAI_Utility import All_Initialization,CSS_Property
-from DSAI_GPT.DSAI_gpt3 import DMVRecommendation
+from DSAI_GPT.DSAI_gpt3 import DMVRecommendationGPT
+from DSAI_GPT.DSAI_chatgpt import DMVRecommendationChatGPT
 import traceback
 
 
@@ -35,10 +36,10 @@ if __name__=='__main__':
 
         if vAR_option=='ChatGPT':
             # Calling ChatGPT
-            DMVRecommendation()
+            DMVRecommendationChatGPT()
         elif vAR_option=='GPT-3':
             # Calling GPT3
-            DMVRecommendation()
+            DMVRecommendationGPT()
         
         else:
             pass

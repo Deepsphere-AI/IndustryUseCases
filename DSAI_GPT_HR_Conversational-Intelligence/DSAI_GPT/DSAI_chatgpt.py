@@ -8,7 +8,7 @@ openai.api_key = os.environ["API_KEY"]
 
 
 
-def DMVRecommendationGPT():
+def DMVRecommendationChatGPT():
     
 
     vAR_input = Get_Chat_DMV_Input()
@@ -70,36 +70,18 @@ Hate | 0 | No hate speech is present in the conversation.
 Toxic | 0.2 | Person 1 has expressed an opinion that Person 2's actions have hurt them.
 Threat | 0 | No threat is present in the conversation.
 
-Given conversation is : 
-Politician 1: You're a liar and a cheat. You'll do anything to get ahead.
-Politician 2: That's not true. I've always acted with integrity.
-Politician 1: Then how do you explain the bribery allegations against you?
-Politician 2: Those are baseless accusations. I have no involvement in any illegal activity.
-Politician 1: You expect me to believe that? You're just trying to cover your tracks.
-Politician 2: I have nothing to hide. You're just trying to tarnish my reputation.
-Politician 1: You've done that yourself with your dishonesty and corruption.
-
-Category | Probability | Explanation
-:-----: | :--------------: | :---------:
-Profanity | 0 | No profanity has been used in the conversation.
-Obscene | 0 | No obscene language or words are used in the conversation.
-Insult | 0.5 | Politician 1 has expressed a critical opinion about Politician 2's character.
-Hate | 0 | No hate speech is present in the conversation.
-Toxic | 0.3 | Politician 1 has expressed an opinion that Politician 2 has acted dishonestly and corruptly.
-Threat | 0 | No threat is present in the conversation.
 Given conversation is :{}""".format(vAR_input)
-    response = openai.Completion.create(
-    model="text-davinci-003",
-    prompt=prompt,
+    response = openai.ChatCompletion.create(
+    model="gpt-3.5-turbo-0301",
+    messages=[{"role": "user", "content":prompt}],
     temperature=0,
     max_tokens=3000,
     top_p=1,
     frequency_penalty=0,
     presence_penalty=0.9,
-    stop=[" Human:", " AI:"]
     )
     print('Chat prompt - ',prompt)
-    return response["choices"][0]["text"]
+    return response['choices'][0]['message']['content']
 
 
 

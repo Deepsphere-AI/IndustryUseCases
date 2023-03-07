@@ -11,13 +11,13 @@ def All_Initialization():
     image = Image.open('DSAI_Utility/Logo_final.png')
     st.image(image)
     st.markdown("<h1 style='text-align: center; color: #454545; font-size:25px;'>ChatGPT Keeps Human Resources Stay in Compliance</h1>", unsafe_allow_html=True)
-    st.markdown("<h2 style='text-align: center; color: blue; font-size:17px;width:100%;'>ChatGPT Empowers Business with Conversational Intelligence: ChatGPT Identifies, Scores, and Classifies Hate,Insult, Threats, Obscene, and Profanity in a Live Conversation.</h2>",unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: center; color: black; font-size:15px;width:100%;'>ChatGPT Empowers Business with Conversational Intelligence: ChatGPT Identifies, Scores, and Classifies Hate,Insult, Threats, Obscene, and Profanity in a Live Conversation.</h2>",unsafe_allow_html=True)
     st.markdown("""
     <hr style="width:100%;height:3px;background-color:gray;border-width:10">
     """, unsafe_allow_html=True)
     choice1 =  st.sidebar.selectbox(" ",('Home','About Us'))
-    choice2 =  st.sidebar.selectbox(" ",('Libraries in Scope','OpenAI','pyChatGPT','Pandas','Streamlit'))
-    choice3 =  st.sidebar.selectbox(" ",('Models Used','ChatGPT', 'GPT3', 'GPT3 - Ada','GPT3 - Babbage','GPT3 - Davinci'))
+    choice2 =  st.sidebar.selectbox(" ",('Libraries in Scope','OpenAI','Pandas','Streamlit','OS'))
+    choice3 =  st.sidebar.selectbox(" ",('Models Used','ChatGPT(GPT-3.5-turbo)', 'GPT3 - Ada','GPT3 - Babbage','GPT3 - Davinci','GPT3 - Curie'))
     menu = ["Google Cloud Services in Scope","Cloud Storage", "Cloud Run", "Cloud Function", "Secret Manager"]
     choice = st.sidebar.selectbox(" ",menu)
     st.sidebar.write('')
