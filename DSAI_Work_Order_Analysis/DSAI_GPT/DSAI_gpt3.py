@@ -7,18 +7,12 @@ from streamlit_chat import message
 openai.api_key = os.environ["API_KEY"]
 
 
-def GPT3Tasks():
-    col1,col2,col3,col4,col5 = vAR_st.columns([1.2,9,0.8,9,2])
-    with col2:
-        vAR_st.subheader("Select Application Function")
-    with col4:    
-        vAR_st.write('')
-        vAR_st.write('')
-        vAR_option = vAR_st.selectbox('',('Select an Application Function','Work Order Analysis','Generate Interview Questions', 'English to Other Languages','Keyword Extraction','Essay Outline','Text Summarization','Chat','Chat DMV','SQL Translate','Classification','Factual Answering','Spreadsheet Creator','SQL Request','Analogy Maker'))
+def GPT3Tasks(vAR_option):
+    
     
 
     if vAR_option=='Work Order Analysis':
-        col1,col2,col3,col4,col5 = vAR_st.columns([1.2,9,0.8,9,2])
+        col1,col2,col3,col4,col5 = vAR_st.columns([2.5,9,0.8,9.6,2])
         with col2:
             vAR_task = """The energy industry is a crucial sector of the global economy, providing the power and resources needed for modern life. However, the industry is also facing a number of significant challenges that must be addressed in order to ensure a sustainable and reliable energy supply for the future. These issues include:
 
@@ -35,6 +29,9 @@ Energy storage: Storing and transporting energy is still a significant challenge
 The number of labor required to resolve these issues varies depending on the specific problem and the approach taken to address it."""
             vAR_question = """1.What are the top 5 issues that occur in energy industry?
 2.How many labor hours are consumed in equipment failure problem?"""
+            vAR_st.write('')
+            vAR_st.write('')
+            vAR_st.write('')
             vAR_st.write('')
             vAR_st.subheader("Work Order Technician Notes")
             vAR_st.write('')
@@ -58,6 +55,21 @@ The number of labor required to resolve these issues varies depending on the spe
             col1,col2,col3 = vAR_st.columns([2,17,4])
             with col2:
                 vAR_st.write('')
+                vAR_st.write('')
+                vAR_st.write('')
+                vAR_st.write('')
+                vAR_st.write('')
+                vAR_st.write('')
+                vAR_st.write('')
+                vAR_st.write('')
+                vAR_st.write('')
+                vAR_st.write('')
+                vAR_st.write('')
+                vAR_st.write('')
+                vAR_st.write('')
+                vAR_st.write('')
+                vAR_st.write('')
+                vAR_st.write('')
                 vAR_st.write(vAR_response)
                 vAR_st.write('')
                 vAR_st.write('')
@@ -65,11 +77,12 @@ The number of labor required to resolve these issues varies depending on the spe
 
 
     if vAR_option=='Generate Interview Questions':
-        col1,col2,col3,col4,col5 = vAR_st.columns([1.2,9,0.8,9,2])
+        col1,col2,col3,col4,col5 = vAR_st.columns([3,9,0.8,10.2,2])
         with col2:
+            vAR_st.write('')
+            vAR_st.write('')
             vAR_st.subheader("Enter Role")
         with col4:
-            vAR_st.write('')
             vAR_st.write('')
             vAR_role = vAR_st.text_input('')
         if vAR_role is not None and len(vAR_role)>0:
@@ -82,22 +95,19 @@ The number of labor required to resolve these issues varies depending on the spe
 
 
     if vAR_option=='English to Other Languages':
-        col1,col2,col3,col4,col5 = vAR_st.columns([1.2,9,0.8,9,2])
+        col1,col2,col3,col4,col5 = vAR_st.columns([3,9,0.8,10.2,2])
         with col2:
+            vAR_st.write('')
             vAR_st.subheader("Select Language")
         with col4:
-            vAR_st.write('')
-            vAR_st.write('')
             vAR_lang = vAR_st.multiselect('',['Select anyone from below','Spanish', 'French','Chinese','Japanese','Tamil'])
             print('Type - ',(vAR_lang))
 
         if len(vAR_lang)>0 and 'Select anyone from below' not in vAR_lang:
-            col1,col2,col3,col4,col5 = vAR_st.columns([1.2,9,0.8,9,2])
+            col1,col2,col3,col4,col5 = vAR_st.columns([3,9,0.8,10.2,2])
             with col2:
                 vAR_st.subheader("Enter Input Text")
             with col4:
-                vAR_st.write('')
-                vAR_st.write('')
                 vAR_input = vAR_st.text_input('')
             if vAR_input is not None and len(vAR_input)>0:
                 vAR_response = Language_Conversion(vAR_lang,vAR_input)
@@ -109,12 +119,11 @@ The number of labor required to resolve these issues varies depending on the spe
 
 
     if vAR_option=='Keyword Extraction':
-        col1,col2,col3,col4,col5 = vAR_st.columns([1.2,9,0.8,9,2])
+        col1,col2,col3,col4,col5 = vAR_st.columns([3,9,0.8,10.2,2])
         with col2:
+            vAR_st.write('')
             vAR_st.subheader("Enter Input")
         with col4:
-            vAR_st.write('')
-            vAR_st.write('')
             vAR_input = vAR_st.text_area('')
         if vAR_input is not None and len(vAR_input)>0:
             vAR_response = Extract_Keywords(vAR_input)
@@ -124,12 +133,11 @@ The number of labor required to resolve these issues varies depending on the spe
                 vAR_st.write(vAR_response)
 
     if vAR_option=='Essay Outline':
-        col1,col2,col3,col4,col5 = vAR_st.columns([1.2,9,0.8,9,2])
+        col1,col2,col3,col4,col5 = vAR_st.columns([3,9,0.8,10.2,2])
         with col2:
+            vAR_st.write('')
             vAR_st.subheader("Enter Input")
         with col4:
-            vAR_st.write('')
-            vAR_st.write('')
             vAR_input = vAR_st.text_area('Example: Create an outline for an essay about Nikola Tesla and his contributions to technology:')
         if vAR_input is not None and len(vAR_input)>0:
             vAR_response = Essay_Outline(vAR_input)
@@ -139,12 +147,11 @@ The number of labor required to resolve these issues varies depending on the spe
                 vAR_st.write(vAR_response)
 
     if vAR_option=='Text Summarization':
-        col1,col2,col3,col4,col5 = vAR_st.columns([1.2,9,0.8,9,2])
+        col1,col2,col3,col4,col5 = vAR_st.columns([3,9,0.8,10.2,2])
         with col2:
+            vAR_st.write('')
             vAR_st.subheader("Enter Input")
         with col4:
-            vAR_st.write('')
-            vAR_st.write('')
             vAR_input = vAR_st.text_area('')
         if vAR_input is not None and len(vAR_input)>0:
             vAR_response = Text_Summarization(vAR_input)
@@ -326,21 +333,22 @@ def Chat_Conversation2(vAR_input):
     return vAR_message
 
 def Get_Chat_DMV_Input():
-    col1,col2,col3,col4,col5 = vAR_st.columns([1.2,9,0.8,9,2])
+    col1,col2,col3,col4,col5 = vAR_st.columns([3,9,0.8,10.2,2])
     with col2:
+        vAR_st.write('')
         vAR_st.subheader("Chat With GPT")
         
     with col4:
-        vAR_st.write('')
         vAR_input = vAR_st.text_input('',placeholder='Enter ELP Configuration')
         return vAR_input
 
 def Get_Chat_Input():
-    col1,col2,col3,col4,col5 = vAR_st.columns([1.2,9,0.8,9,2])
+    col1,col2,col3,col4,col5 = vAR_st.columns([3,9,0.8,10.2,2])
     with col2:
+        vAR_st.write('')
+
         vAR_st.subheader("Chat With GPT")
         
     with col4:
-        vAR_st.write('')
         vAR_input = vAR_st.text_input('Start your conversation here')
         return vAR_input

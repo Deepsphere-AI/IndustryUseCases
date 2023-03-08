@@ -15,8 +15,8 @@ def All_Initialization():
     <hr style="width:100%;height:3px;background-color:gray;border-width:10">
     """, unsafe_allow_html=True)
     choice1 =  st.sidebar.selectbox(" ",('Home','About Us'))
-    choice2 =  st.sidebar.selectbox(" ",('Libraries in Scope','OpenAI','pyChatGPT','Pandas','Streamlit'))
-    choice3 =  st.sidebar.selectbox(" ",('Models Used','ChatGPT', 'GPT3', 'GPT3 - Ada','GPT3 - Babbage','GPT3 - Davinci'))
+    choice2 =  st.sidebar.selectbox(" ",('Libraries in Scope','OpenAI','Pandas','Streamlit','OS'))
+    choice3 =  st.sidebar.selectbox(" ",('Models Used','ChatGPT(GPT-3.5-turbo)', 'GPT3 - Ada','GPT3 - Babbage','GPT3 - Davinci','GPT3 - Curie'))
     menu = ["Google Cloud Services in Scope","Cloud Storage", "Cloud Run", "Cloud Function", "Secret Manager"]
     choice = st.sidebar.selectbox(" ",menu)
     st.sidebar.write('')
@@ -25,7 +25,11 @@ def All_Initialization():
     <input type="submit" value="Clear/Reset" />
 </form>"""
     st.sidebar.markdown(href, unsafe_allow_html=True)
-    
+    st.sidebar.write('')
+    st.sidebar.write('')
+    st.sidebar.text('Build & Deployed on')
+    st.sidebar.write('')
+    st.sidebar.image('DSAI_Utility/Google-Cloud-Platform-GCP-logo.png')
     # vAR_clear_button = st.sidebar.button('Clear/Reset')
     # if vAR_clear_button:
     #     st.experimental_rerun()
