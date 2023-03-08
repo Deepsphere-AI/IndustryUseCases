@@ -11,7 +11,7 @@ def All_Initialization():
     image = Image.open('DSAI_Utility/Logo_final.png')
     st.image(image)
     st.markdown("<h1 style='text-align: center; color: #454545; font-size:25px;'>ChatGPT Keeps Human Resources Stay in Compliance</h1>", unsafe_allow_html=True)
-    st.markdown("<h2 style='text-align: center; color: black; font-size:15px;width:100%;'>ChatGPT Empowers Business with Conversational Intelligence: ChatGPT Identifies, Scores, and Classifies Hate,Insult, Threats, Obscene, and Profanity in a Live Conversation.</h2>",unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: center; color: black; font-size:15px;width:100%;'>ChatGPT Empowers Business with Conversational Intelligence: ChatGPT Identifies, Scores, and Classifies Hate,Insult,Threats,Obscene,Toxic and Profanity in a Live Conversation.</h2>",unsafe_allow_html=True)
     st.markdown("""
     <hr style="width:100%;height:3px;background-color:gray;border-width:10">
     """, unsafe_allow_html=True)
