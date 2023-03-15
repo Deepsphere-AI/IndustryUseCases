@@ -26,7 +26,6 @@ if __name__=='__main__':
             vAR_st.write('')
             vAR_st.write('')
             vAR_st.write('')
-            vAR_st.write('')
             vAR_st.subheader('Select the Model & API')
         with col4:
             vAR_st.write('')

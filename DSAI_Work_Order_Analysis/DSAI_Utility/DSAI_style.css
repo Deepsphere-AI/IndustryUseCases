@@ -233,10 +233,10 @@ hr {
         margin: 0 auto;
         text-align: center;
         height: 108%;
-        width: 55%;
-        left: -47px;
+        width: 56%;
+        left: 0px;
         position: relative;
-        top: -18px;
+        top: -10px;
     }
 .css-10trblm {
     padding:0px;
@@ -488,10 +488,26 @@ margin-bottom:0px !important;
     text-align: center;
     font-weight: bold;
     color: white;
+    font-size:20px;
 }
 
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.css-163ttbj.e1fqkh3o11 > div.css-6qob1r.e1fqkh3o3 > div.css-1vq4p4l.e1fqkh3o4 > div > div:nth-child(1) > div > div:nth-child(12) > div > div > div > img{
     max-width: 100%;
     padding: 1px 23px 32px 33px;
     left: -10px;
+}
+
+
+
+
+
+/* #root > div:nth-child(1) > div.withScreencast > div > div > div > section.css-163ttbj.e1fqkh3o11 > div.css-6qob1r.e1fqkh3o3 > div.css-1vq4p4l.e1fqkh3o4 > div > div:nth-child(1) > div > div.css-ocqkz7.e1tzin5v4 > div:nth-child(3) > div:nth-child(1) > div{
+    padding: 23px 21px 31px 48px;
+}
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section.css-163ttbj.e1fqkh3o11 > div.css-6qob1r.e1fqkh3o3 > div.css-1vq4p4l.e1fqkh3o4 > div > div:nth-child(1) > div > div.css-ocqkz7.e1tzin5v4{
+    padding: 0px 30px 42px 0px;
+} */
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section.css-163ttbj.e1fqkh3o11 > div.css-6qob1r.e1fqkh3o3 > div.css-1vq4p4l.e1fqkh3o4 > div > div:nth-child(1) > div > div.css-ocqkz7.e1tzin5v4 > div:nth-child(3) > div:nth-child(1) > div > div > div > div > div > img{
+    max-width: 66%;
+height: 116%;
 }

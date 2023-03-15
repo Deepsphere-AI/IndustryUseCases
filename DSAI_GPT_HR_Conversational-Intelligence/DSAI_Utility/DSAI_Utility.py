@@ -17,7 +17,7 @@ def All_Initialization():
     """, unsafe_allow_html=True)
     choice1 =  st.sidebar.selectbox(" ",('Home','About Us'))
     choice2 =  st.sidebar.selectbox(" ",('Libraries in Scope','OpenAI','Pandas','Streamlit','OS'))
-    choice3 =  st.sidebar.selectbox(" ",('Models Used','ChatGPT(GPT-3.5-turbo)', 'GPT3 - Ada','GPT3 - Babbage','GPT3 - Davinci','GPT3 - Curie'))
+    choice3 =  st.sidebar.selectbox(" ",('Models Used','ChatGPT(GPT-4)','ChatGPT(GPT-3.5-turbo)', 'GPT3 - Ada','GPT3 - Babbage','GPT3 - Davinci','GPT3 - Curie'))
     menu = ["Google Cloud Services in Scope","Cloud Storage", "Cloud Run", "Cloud Function", "Secret Manager"]
     choice = st.sidebar.selectbox(" ",menu)
     st.sidebar.write('')
@@ -30,7 +30,13 @@ def All_Initialization():
     st.sidebar.write('')
     st.sidebar.text('Build & Deployed on')
     st.sidebar.write('')
-    st.sidebar.image('DSAI_Utility/Google-Cloud-Platform-GCP-logo.png')
+
+    col1,col2,col3 = st.sidebar.columns([8,1,8])
+    with col1:
+        st.image('DSAI_Utility/Google-Cloud-Platform-GCP-logo.png')
+    with col3:
+        # st.image('DSAI_Utility/openai-logo.png')
+        st.image('DSAI_Utility/chatgpt-icon.png')
     
     # vAR_clear_button = st.sidebar.button('Clear/Reset')
     # if vAR_clear_button:
